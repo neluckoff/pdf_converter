@@ -7,6 +7,7 @@ from art import tprint
 
 
 def main():
+    """Application menu"""
     print("Welcome to the menu!")
     print("[0] Call menu\n"
           "[1] Get information about a PDF file\n"
@@ -16,6 +17,7 @@ def main():
           "[5] Merge two PDF files\n"
           "[6] Encrypt PDF file\n"
           "[7] Decrypt PDF file")
+
     while True:
         choosing = int(input("\nChoose what you want to do: "))
         if choosing == 1:
@@ -37,6 +39,7 @@ def main():
 
 
 def pdf_info():
+    """Find out all the information about the PDF file"""
     path = input("[!] Path: ")
     if Path(path).is_file() and (Path(path).suffix == ".pdf" or Path(path).suffix == ".PDF"):
         file_name = os.path.splitext(os.path.basename(path))[0]
@@ -56,6 +59,7 @@ def pdf_info():
 
 
 def pdf_select_page():
+    """Extract a page from a PDF file into a separate file"""
     path = input("[!] Path: ")
     file_name = os.path.splitext(os.path.basename(path))[0]
     if Path(path).is_file() and (Path(path).suffix == ".pdf" or Path(path).suffix == ".PDF"):
@@ -79,6 +83,7 @@ def pdf_select_page():
 
 
 def merge_pdf():
+    """Join two PDF files together"""
     path1 = input("[!] The file you want to paste into: ")
     path2 = input("[!] File to be inserted: ")
     if Path(path1).is_file() and (Path(path1).suffix == ".pdf" or Path(path1).suffix == ".PDF"):
@@ -100,6 +105,7 @@ def merge_pdf():
 
 
 def pdf_delete_page():
+    """Delete page from PDF file"""
     path = input("[!] Path: ")
     file_name = os.path.splitext(os.path.basename(path))[0]
     if Path(path).is_file() and (Path(path).suffix == ".pdf" or Path(path).suffix == ".PDF"):
@@ -125,6 +131,7 @@ def pdf_delete_page():
 
 
 def pdf_to_docx():
+    """Convert PDF file to DOCX file"""
     pdf_file = input("[!] Path to PDF: ")
     if Path(pdf_file).is_file() and (Path(pdf_file).suffix == ".pdf" or Path(pdf_file).suffix == ".PDF"):
         docx_file = input("[!] Enter a name for the Word file: ") + '.docx'
@@ -138,6 +145,7 @@ def pdf_to_docx():
 
 
 def encrypt_pdf():
+    """Set password for PDF file"""
     path = input("[+] Path: ")
     file_writer = PdfWriter()
     file_name = os.path.splitext(os.path.basename(path))[0]
@@ -160,6 +168,7 @@ def encrypt_pdf():
 
 
 def decrypt_pdf():
+    """Remove password from PDF file"""
     path = input("[+] Path: ")
     file_writer = PdfWriter()
     file_name = os.path.splitext(os.path.basename(path))[0]
