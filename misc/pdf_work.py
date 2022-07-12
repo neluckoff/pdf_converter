@@ -45,7 +45,7 @@ def choose_funct(choosing, path, text):
         var1 = StringVar(new_app)
         entry = Entry(new_app, textvariable=var1)
         entry.grid(row=0, column=1)
-        Button(new_app, text='Encrypt', command=lambda: encrypt_pdf(path, int(entry.get()), new_app, text)) \
+        Button(new_app, text='Encrypt', command=lambda: encrypt_pdf(path, entry.get(), new_app, text)) \
             .grid(row=0, column=2)
         new_app.mainloop()
     elif choosing == "Decrypt PDF file":
@@ -55,7 +55,7 @@ def choose_funct(choosing, path, text):
         var1 = StringVar(new_app)
         entry = Entry(new_app, textvariable=var1)
         entry.grid(row=0, column=1)
-        Button(new_app, text='Decrypt', command=lambda: decrypt_pdf(path, int(entry.get()), new_app, text)) \
+        Button(new_app, text='Decrypt', command=lambda: decrypt_pdf(path, entry.get(), new_app, text)) \
             .grid(row=0, column=2)
         new_app.mainloop()
 
