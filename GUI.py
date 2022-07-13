@@ -19,6 +19,10 @@ def start():
     app.title("PDF Converter")
     app.geometry('740x350')
 
+    x = (app.winfo_screenwidth() - app.winfo_reqwidth()) / 3
+    y = (app.winfo_screenheight() - app.winfo_reqheight()) / 3
+    app.wm_geometry("+%d+%d" % (x, y))
+
     tkvar = StringVar(app)
     tkvar.set(OptionList[0])
     var = StringVar(app)

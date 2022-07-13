@@ -19,6 +19,9 @@ def choose_funct(choosing, path, text):
         new_app = Tk()
         new_app.title("Delete page from PDF")
         new_app.geometry('220x100')
+        x = (new_app.winfo_screenwidth() - new_app.winfo_reqwidth()) / 2
+        y = (new_app.winfo_screenheight() - new_app.winfo_reqheight()) / 2
+        new_app.wm_geometry("+%d+%d" % (x, y))
         var1 = StringVar(new_app)
         entry = Entry(new_app, textvariable=var1)
         entry.grid(row=0, column=1)
@@ -29,6 +32,9 @@ def choose_funct(choosing, path, text):
         new_app = Tk()
         new_app.title("Select one page from PDF")
         new_app.geometry('220x100')
+        x = (new_app.winfo_screenwidth() - new_app.winfo_reqwidth()) / 2
+        y = (new_app.winfo_screenheight() - new_app.winfo_reqheight()) / 2
+        new_app.wm_geometry("+%d+%d" % (x, y))
         var1 = StringVar(new_app)
         entry = Entry(new_app, textvariable=var1)
         entry.grid(row=0, column=1)
@@ -42,6 +48,9 @@ def choose_funct(choosing, path, text):
         new_app = Tk()
         new_app.title("Encrypt PDF file")
         new_app.geometry('220x100')
+        x = (new_app.winfo_screenwidth() - new_app.winfo_reqwidth()) / 2
+        y = (new_app.winfo_screenheight() - new_app.winfo_reqheight()) / 2
+        new_app.wm_geometry("+%d+%d" % (x, y))
         var1 = StringVar(new_app)
         entry = Entry(new_app, textvariable=var1)
         entry.grid(row=0, column=1)
@@ -52,6 +61,9 @@ def choose_funct(choosing, path, text):
         new_app = Tk()
         new_app.title("Decrypt PDF file")
         new_app.geometry('220x100')
+        x = (new_app.winfo_screenwidth() - new_app.winfo_reqwidth()) / 2
+        y = (new_app.winfo_screenheight() - new_app.winfo_reqheight()) / 2
+        new_app.wm_geometry("+%d+%d" % (x, y))
         var1 = StringVar(new_app)
         entry = Entry(new_app, textvariable=var1)
         entry.grid(row=0, column=1)
