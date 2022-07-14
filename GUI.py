@@ -1,3 +1,4 @@
+import tkinter
 from tkinter import *
 from tkinter import filedialog as fd
 from misc.pdf_work import choose_funct
@@ -24,9 +25,14 @@ class GUI:
         self.directory_save = fd.askdirectory()
         var.set(self.directory_save)
 
+    def show_frame(self, cont):
+        frame = self.frames[cont]
+        frame.tkraise()
+
     def __init__(self):
         self.directory_save = None
         self.files = None
+        self.frames = {}
         self.app = Tk()
 
         self.app.title("PDF Converter")
@@ -37,11 +43,33 @@ class GUI:
         self.app.wm_geometry("+%d+%d" % (x, y))
 
         """Choosing menu"""
-        tab_control = ttk.Notebook(self.app)
-        tab1 = ttk.Frame(tab_control)
-        tab2 = ttk.Frame(tab_control)
-        tab_control.add(tab1, text="PDF")
-        tab_control.add(tab2, text="IMAGE")
+        menu_bar = Menu()
+        container = ttk.Frame()
+        container.pack(side="top", fill="both", expand=True)
+        container.grid_rowconfigure(0, weight=1)
+        container.grid_columnconfigure(0, weight=1)
+
+        view_menu = Menu(menu_bar, tearoff=0)
+        convert_menu = Menu(menu_bar, tearoff=0)
+
+        tab1 = ttk.Frame(container)
+        tab2 = ttk.Frame(container)
+        self.frames['PDF'] = tab1
+        self.frames['Image'] = tab2
+
+        tab1.grid(row=0, column=0, sticky="nsew")
+        tab2.grid(row=0, column=0, sticky="nsew")
+
+        convert_menu.add_command(label="PDF Converter", command=lambda: self.show_frame('PDF'))
+        convert_menu.add_command(label="Image Converter", command=lambda: self.show_frame('Image'))
+
+        view_menu.add_command(label="Clear Console", command=lambda: text.delete('1.0', END))
+        view_menu.add_separator()
+        view_menu.add_command(label="Exit", command=lambda: self.app.destroy())
+
+        menu_bar.add_cascade(label="View", menu=view_menu)
+        menu_bar.add_cascade(label="Converters", menu=convert_menu)
+        self.app.configure(menu=menu_bar)
 
         var3 = StringVar(self.app)
 
@@ -86,10 +114,11 @@ class GUI:
 
         """All App"""
         text = Text(self.app)
-        text.place(x=310, y=30, height=310, width=420)
+        text.place(x=310, y=10, height=330, width=420)
         Label(self.app, text="https://github.com/neluckoff/pdf_converter").place(x=5, y=320)
 
-        tab_control.pack(expand=1, fill='both')
+        # tab_control.pack(expand=1, fill='both')
+        self.show_frame('PDF')
 
     def start(self):
         """Launching the entire application"""
