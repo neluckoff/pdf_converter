@@ -16,6 +16,7 @@ option_list = [
 
 
 class GUI:
+    """Class with application visual settings"""
     def get_images(self):
         self.files = fd.askopenfilenames(parent=self.app, title='Choose a file')
 
@@ -35,7 +36,7 @@ class GUI:
         y = (self.app.winfo_screenheight() - self.app.winfo_reqheight()) / 3
         self.app.wm_geometry("+%d+%d" % (x, y))
 
-        # Create tabs
+        """Choosing menu"""
         tab_control = ttk.Notebook(self.app)
         tab1 = ttk.Frame(tab_control)
         tab2 = ttk.Frame(tab_control)
@@ -44,7 +45,7 @@ class GUI:
 
         var3 = StringVar(self.app)
 
-        # Settings 1st page
+        """Settings 1st page"""
         Label(tab1, text="PDF Converter", font=('bold', 14)).place(x=20, y=5)
         tkvar = StringVar(tab1)
         tkvar.set(option_list[0])
@@ -64,7 +65,7 @@ class GUI:
         Entry(tab1, textvariable=var3).place(x=100, y=75)
         Button(tab1, text="Browse", command=lambda: self.choose_directory(var3)).place(x=220, y=71)
 
-        # Setting 2nd page
+        """Setting 2nd page"""
         Label(tab2, text="Image Converter", font=('bold', 14)).place(x=20, y=5)
         var2 = StringVar(tab2)
 
@@ -83,7 +84,7 @@ class GUI:
         Entry(tab2, textvariable=var3).place(x=100, y=80)
         Button(tab2, text="Browse", command=lambda: self.choose_directory(var3)).place(x=224, y=76)
 
-        # All App
+        """All App"""
         text = Text(self.app)
         text.place(x=310, y=30, height=310, width=420)
         Label(self.app, text="https://github.com/neluckoff/pdf_converter").place(x=5, y=320)
@@ -91,4 +92,5 @@ class GUI:
         tab_control.pack(expand=1, fill='both')
 
     def start(self):
+        """Launching the entire application"""
         self.app.mainloop()

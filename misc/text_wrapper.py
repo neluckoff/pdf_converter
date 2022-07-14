@@ -2,6 +2,7 @@ from tkinter import *
 
 
 class TextWrapper:
+    """Class for console output to the application text window"""
     text_field: Text
 
     def __init__(self, text_field: Text):
