@@ -1,4 +1,4 @@
-# Console application "PDF Converter"
+# A small desktop application for working with PDF documents.
 
 The application was created in order to avoid working with sites on the Internet. Time is a precious resource and I don't want to waste it sitting for 5 minutes waiting for the ad to end.
 
