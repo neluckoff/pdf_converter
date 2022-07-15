@@ -1,4 +1,3 @@
-import tkinter
 from tkinter import *
 from tkinter import filedialog as fd
 from misc.pdf_work import choose_funct
@@ -117,7 +116,6 @@ class GUI:
         text.place(x=310, y=10, height=330, width=420)
         Label(self.app, text="https://github.com/neluckoff/pdf_converter").place(x=5, y=320)
 
-        # tab_control.pack(expand=1, fill='both')
         self.show_frame('PDF')
 
     def start(self):
