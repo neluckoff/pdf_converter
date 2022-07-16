@@ -10,6 +10,8 @@ The application was created in order to avoid working with sites on the Internet
 
 When developing the program, 2 modules for working with PDF files ([PyPDF2](https://github.com/py-pdf/PyPDF2), [pdf2docx](https://github.com/dothinking/pdf2docx)), one module for working with images ([Pillow](https://github.com/python-pillow/Pillow)) and a module for creating a desktop application ([Tkinter](https://github.com/ParthJadhav/Tkinter-Designer)) were used.
 
+<p align="center"><img src="https://i.imgur.com/4brSwN1.png"></a></p>
+
 ## What the program can do
 **PDF Converter:**
 + Get information about a PDF file
@@ -22,3 +24,9 @@ When developing the program, 2 modules for working with PDF files ([PyPDF2](http
 
 **Image Converter:**
 + Convert any number of images to PDF file (*.jpg, *.png, *.jpeg)
+
+## Photos of using the program
+
+<p align="left"><img src="https://i.imgur.com/I1t045L.png"></a></p>
+
+<p align="center"><img src="https://i.imgur.com/dBQnS8n.png"></a></p>
